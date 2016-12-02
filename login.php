@@ -10,7 +10,7 @@ error_reporting(-1);
       $sql = "SELECT EmployeeID, IsManager FROM EMPLOYEE WHERE EmployeeID = '$myusername' and Password = '$mypassword'";
       $result = mysqli_query($db,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+      //$active = $row['active'];
       $count = mysqli_num_rows($result);
 	  $is_manager = $row['IsManager'];
       // If result matched $myusername and $mypassword, table row must be 1 row
@@ -34,8 +34,13 @@ error_reporting(-1);
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>Login Page</title>
+		<link rel = "stylesheet" type = "text/css" href = "bootstrap.min.css">
 		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src = "functions.js"></script>
 	</head>
+	
 	<body>
 		<div id="page">
 			<header id="header">
@@ -57,10 +62,8 @@ error_reporting(-1);
 			<br />
 			<div class="empLog">
 				<form action = "" method = "post">
-					<font color = "black">Employee ID &nbsp;</font>
-					<input type = "text" name = "username" class = "box"/><br />
-					<font color = "black">Password &nbsp;</font>
-					<input type = "password" name = "password" class = "box" /><br/>
+					Employee ID&nbsp;<input type = "text" name = "username" class = "box"/><br />
+					Password&nbsp;<input type = "password" name = "password" class = "box"/><br/>
 					
 					<!----------------------------------------------------------------------------->
 					<?php
@@ -71,7 +74,7 @@ error_reporting(-1);
 					?>
 					<!----------------------------------------------------------------------------->
 					
-						<input type = "submit" value = " Submit "/><br />
+					<input type = "submit" value = " Submit " class = "btn btn-default"/><br />
 				</form>
 			</div>
 			<footer id="footer">

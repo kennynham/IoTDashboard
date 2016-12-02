@@ -26,6 +26,10 @@ h2 {
 	color:black; 
 }
 
+label {
+	color: black;
+}
+
 #logo { 
 	width:auto; 
 	float:left; 
@@ -37,7 +41,7 @@ h2 {
 }
 	
 #logo h1 span { 
-	color:#bfbfbf; 
+	color:gray; 
 }
 
 #header { 
@@ -165,7 +169,7 @@ h2 {
 	margin-left: auto;
 	margin-right: auto;
 	padding-right: 100px;
-	width: 300;	
+	width: 400px;	
 
 }
 
@@ -173,7 +177,7 @@ h2 {
 	color: black;
 	background-color: white;
 	display: inline-block; 
-	text-align: right;
+	text-align: center;
 	padding-right: 200px;
 	width: 400px;
 	clear: both;

@@ -1,91 +1,32 @@
 <?php
-	include('session.php');
-   			
-	// Define variables and set to empty values
-	$firstNameErr = $lastNameErr = $streetAddressErr = $cityErr = $zipCodeErr = $stateErr = $phoneNumErr = $employeeIDErr = $passwordErr = "";
-	$firstName = $lastName = $streetAddress = $city = $zipCode = $state = $phoneNum = $employeeID = $password = "";
-	
-		if ($_SERVER["REQUEST_METHOD"] === "POST") {
+   include('session.php');
+   		
+		if(isset($_POST['createAccountButton']))
+		{
+			$firstName = isset($_POST["firstName"]) ? $_POST["firstName"] : ' ';
+			$lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : ' ';
+			$streetAddress = isset($_POST["streetAddress"]) ? $_POST["streetAddress"] : ' ';
+			$city = isset($_POST["city"]) ? $_POST["city"] : ' ';
+			$zipCode = isset($_POST["zip"]) ? $_POST["zip"] : ' ';
+			$state = isset($_POST["state"]) ? $_POST["state"] : ' ';
+			$phoneNum = isset($_POST["phoneNum"]) ? $_POST["phoneNum"] : ' ';
+			$employeeID = isset($_POST["employeeID"]) ? $_POST["employeeID"] : ' ';
+			$password = isset($_POST["password"]) ? $_POST["password"] : ' ';
 			
-			if (empty($_POST["firstName"])) {
-				$firstNameErr = "First name is required";
-			} 
-			else {
-				$firstName = $_POST["firstName"];
-			}
-			
-			if (empty($_POST["lastName"])) {
-				$lastNameErr = "Last name is required";
-			} 
-			else {
-				$lastName = $_POST["lastName"];
-			}
-			
-			if (empty($_POST["streetAddress"])) {
-				$streetAddressErr = "Street address is required";
-			}
-			else {
-				$streetAddress = $_POST["streetAddress"];
-			}
-			
-			if (empty($_POST["city"])) {
-				$cityErr = "City is required";
-			} 
-			else {
-				$city = $_POST["city"];
-			}
-			
-			if (empty($_POST["zipCode"])) {
-				$zipCodeErr = "Zip code is required";
-			} 
-			else {
-				$zipCode = $_POST["zipCode"];
-			}
-			
-			if (empty($_POST["state"])) {
-				$stateErr = "State is required";
-			} 
-			else {
-				$state = $_POST["state"];
-			}
-			
-			if (empty($_POST["phoneNum"])) {
-				$phoneNumErr = "Phone number is required";
-			} 
-			else {
-				$phoneNum = $_POST["phoneNum"];
-			}
-			
-			if (empty($_POST["employeeID"])) {
-				$employeeIDErr = "Employee ID is required";
-			} 
-			else {
-				$employeeID = $_POST["employeeID"];
-			}
-			
-			if (empty($_POST["password"])) {
-				$passwordErr = "Password is required";
-			} 
-			else {
-				$password = $_POST["password"];
-			}
-			
-			$new_employee_sql = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber, Password)
-									VALUES ('$employeeID', '$firstName', '$lastName', '$streetAddress', '$city', '$zipCode', '$state', '$phoneNum', '$password')";
-			$result = mysqli_query($db, $new_employee_sql);
-			
-			if ($result) {
-				echo "New record created successfully.";
-			}
+			$new_employee = "INSERT INTO EMPLOYEE (EmployeeID, FirstName, LastName, StreetAddress, City, Zip, ShortState, PhoneNumber)
+									VALUES ('$employeeID', '$firstName', '$lastName', '$streetAddress', '$city', '$zipCode', '$state', '$phoneNum')";
+									
 		}
+		
+
 ?>
 
 <html>
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Create Account</title>
-		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<title>Employer Dashboard </title>
+		<link rel = "stylesheet" type = "text/css" href = "teamprojectStylesheet.css">
 	</head>
 	
 	<body>
@@ -121,28 +62,27 @@
 				<!---------------------------------------------------------------------------------------------------------------------------------------->
 				<div class = "createForm">
 				
-				<form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">					
-					First Name: <input type = "text" name = "firstName" required>
+				<form method="post" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">					
+					First Name: <input type="text" name="firstName">
 					<br><br>
-					Last Name: <input type = "text" name = "lastName" required>
+					Last Name: <input type="text" name="lastName">
 					<br><br>
-					Street Address: <input type = "text" name = "streetAddress" required>
+					Street Address: <input type="text" name="streetAddress">
 					<br><br>
-					City: <input type = "text" name = "city" required>
+					City: <input type="text" name="city">
 					<br><br>
-					Zip Code: <input type = "text" name = "zipCode" required>
+					Zip Code: <input type="text" name="zip">
 					<br><br>
-					State: <input type = "text" name = "state" required>
+					State: <input type="text" name="state">
 					<br><br>
-					Phone Number: <input type = "text" name = "phoneNum" required>
+					Phone Number: <input type="text" name="phoneNum">
 					<br><br>
-					Employee ID: <input type = "text" name = "employeeID" required>
+					Employee ID: <input type="text" name="employeeID">
 					<br><br>
-					Password: <input type = "password" name = "password" required>
-					<br><br>
-					<input type = "submit" value = "Submit">
+					Password <input type = "text" name ="password">
+					<br>
+					<input type="submit" name = "createAccountButton" value="Submit">
 				</form>
-				
 				<br>				
 				</div>
 				<!---------------------------------------------------------------------------------------------------------------------------------------->

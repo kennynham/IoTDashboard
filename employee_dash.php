@@ -34,7 +34,7 @@
 			</header>
 			
 			<div id = "feature">
-				<h1>Welcome, <?php echo $first_name . " (" . $login_session . ")"; ?></h1>
+				<h1><?php echo $first_name . " (" . $login_session . ")"; ?></h1>
 			</div>
 			
 			<div id = "content">
@@ -45,6 +45,7 @@
 							<ul>
 								<li><input type = "button" onclick = 'clock_query("clock-in-query")' value = "Clock-In" class = "btn btn-default" data-toggle = "modal" data-target = "#clockedIn"/></li>
 								<li><input type = "button" onclick = 'clock_query("clock-out-query")' value = "Clock-Out" class = "btn btn-default" data-toggle = "modal" data-target = "#clockedOut"/></li>
+								<li><form method="link" action="account_info.php"> <input type="submit" value="Account Information"> </form> </li>
 							</ul>
 						</div>
 					</nav>

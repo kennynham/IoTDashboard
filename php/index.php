@@ -2,13 +2,9 @@
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<<<<<<< HEAD
-		<title>TAASIT Index</title>
-=======
-		<title>TAASIT - Time and Attendance, Advanced Security and Inventory Tracking</title>
+		<title>TAASIT - Time and Attendance, Advanced Security, and Inventory Tracking</title>
 		<!-- Import stylesheet -->
->>>>>>> origin/master
-		<link rel = "stylesheet" type = "text/css" href = "stylesheet.css">
+		<link rel = "stylesheet" type = "text/css" href = "css/stylesheet.css">
 	</head>
 	
 	<body>
